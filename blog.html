@@ -423,6 +423,7 @@
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
                 const articles = response.json();  
+                loadArticles(articles);
             })
             .then(data => console.log(data))  
             .catch(error => console.error('Failed to fetch data:', error));
@@ -527,7 +528,8 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            loadArticles();
+            //loadArticles();
+            console.log("content loaded");
         });
     </script>
 </body>
