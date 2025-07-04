@@ -72,7 +72,7 @@
             animation: slideUp 1s ease-out 0.8s both;
         }
 
-        .presentation-toggle {
+        .button {
             display: inline-block;
             padding: 12px 24px;
             background: rgba(255, 255, 255, 0.05);
@@ -88,7 +88,7 @@
             margin-bottom: 30px;
         }
 
-        .presentation-toggle:hover {
+        .button:hover {
             background: rgba(255, 255, 255, 0.08);
             border-color: rgba(255, 255, 255, 0.2);
             color: #fff;
@@ -423,7 +423,11 @@
             <p class="subtitle">Passionate Dev</p>
             
         <div class="presentation-section">
-            <div class="presentation-toggle" id="presentationToggle">
+            <div class="button" id="blogButton">
+                📚 Look at my Blog
+            </div> 
+            <br>
+            <div class="button" id="presentationToggle">
                 ✨ Discover My Profile
             </div>
             <div class="presentation-content" id="presentationContent">
@@ -483,6 +487,7 @@
     </div>
 
     <script>
+        const blogButton = document.getElementById('blogButton');
         const presentationToggle = document.getElementById('presentationToggle');
         const presentationContent = document.getElementById('presentationContent');
         let isExpanded = false;
@@ -498,6 +503,10 @@
                 presentationToggle.textContent = '✨ Discover My Profile';
             }
         });
+
+        blogButton.addEventListener('click', function() {
+            window.location.href = './blog.html';
+        })
 
         document.getElementById('emailLink').addEventListener('click', function(e) {
             e.preventDefault();

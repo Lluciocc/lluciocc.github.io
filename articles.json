@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of Web Development with React 18",
+    "excerpt": "Explore the new features of React 18 and how they are revolutionizing modern web application development.",
+    "date": "March 15, 2024",
+    "category": "React",
+    "tags": ["React", "JavaScript", "Web Dev"],
+    "image": null,
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Unity and 3D Game Development",
+    "excerpt": "A complete guide to getting started with 3D game development using Unity, from design to publication.",
+    "date": "March 8, 2024",
+    "category": "Game Dev",
+    "tags": ["Unity", "C#", "3D", "Game Development"],
+    "image": null,
+    "featured": false
+  }
+]
