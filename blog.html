@@ -417,16 +417,6 @@
     </div>
 
     <script>
-        fetch('./articles.json')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                const articles = response.json();  
-                loadArticles(articles);
-            }) 
-            .catch(error => console.error('Failed to fetch data:', error));
-
         function createArticleCard(article) {
             const card = document.createElement('div');
             card.className = 'article-card';
@@ -465,7 +455,13 @@
             return card;
         }
 
-        function loadArticles(articles) {
+        async function loadArticles() {
+            const r = await fetch("./articles.json");
+            if (!r.ok) throw new Error("HTTP error: " + r.status);
+
+            const data = await r.json();
+            const articles = data.articles;
+
             const blogGrid = document.getElementById('blogGrid');
             
             if (articles.length === 0 || articles === null) {
@@ -526,9 +522,7 @@
             lastScrollTop = scrollTop;
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            loadArticles();
-        });
+        document.addEventListener("DOMContentLoaded", loadArticles);
     </script>
 </body>
 </html>
