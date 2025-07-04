@@ -463,8 +463,8 @@
             const articles = data.articles;
 
             const blogGrid = document.getElementById('blogGrid');
-            
-            if (articles.length === 0 || !Array.isArray(articles)) {
+
+            if (!Array.isArray(articles) || articles.length === 0) {
                 blogGrid.innerHTML = `
                     <div class="empty-state">
                         <h3>No article for now</h3>
@@ -485,6 +485,7 @@
                 blogGrid.appendChild(card);
             });
         }
+
 
         function openArticle(id) {
             console.log(`Opening article with ID: ${id}`);
