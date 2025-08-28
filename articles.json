@@ -7,16 +7,17 @@
     "category": "React",
     "tags": ["React", "JavaScript", "Web Dev"],
     "image": null,
-    "featured": true
+    "featured": false
   },
   {
     "id": 2,
-    "title": "Unity and 3D Game Development",
-    "excerpt": "A complete guide to getting started with 3D game development using Unity, from design to publication.",
-    "date": "March 8, 2024",
-    "category": "Game Dev",
-    "tags": ["Unity", "C#", "3D", "Game Development"],
+    "title": "TheSteamTool: My first C# Tool",
+    "excerpt": "This program provides a way to unlock Steam games without having to download them from untrustworthy websites.",
+    "date": "August 1, 2025",
+    "category": "Tool Dev",
+    "tags": ["C#", "Steam", "Game Pirating"],
     "image": null,
-    "featured": false
+    "featured": true
   }
+
 ]
