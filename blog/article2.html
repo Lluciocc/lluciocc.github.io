@@ -1,51 +1,197 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'avenir du développement web avec React 18 - lluciocc</title>
-    <link rel="stylesheet" href="./article.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TheSteamTool - lluciocc</title>
+    <link rel="stylesheet" href="./article.css" />
 </head>
 <body>
     <div class="main-container">
         <div class="background-grid"></div>
-        
         <div class="floating-orb orb-1"></div>
         <div class="floating-orb orb-2"></div>
 
         <div class="nav-back">
             <a href="#" onclick="goBack()">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
-                Retour au blog
+                Back to blog
             </a>
         </div>
 
         <div class="article-container">
             <div class="article-header">
                 <div class="article-meta">
-                    <span class="article-date">15 Mars 2024</span>
-                    <span class="article-category">React</span>
+                    <span class="article-date">March 15, 2024</span>
+                    <span class="article-category">C# / Tool</span>
                 </div>
-                <h1 class="article-title">gg</h1>
-                <p class="article-subtitle">ahhhh</p>
+                <h1 class="article-title">TheSteamTool</h1>
+                <p class="article-subtitle">A program that allows you to legally unlock your Steam games without relying on shady websites.</p>
             </div>
 
+            <div class="article-content">
+                <div class="toc">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#introduction">Introduction</a></li>
+                        <li><a href="#before-launch">Before Launching the Program</a></li>
+                        <li><a href="#after-launch">After Launch</a></li>
+                        <li><a href="#using">Usage</a></li>
+                        <li><a href="#patch-snippet">Example: Applying a Patch</a></li>
+                        <li><a href="#additional-commands">Additional Commands</a></li>
+                        <li><a href="#limitations">Limitations</a></li>
+                        <li><a href="#conclusion">Conclusion</a></li>
+                    </ul>
+                </div>
+
+                <section class="section intro-section" id="introduction">
+                    <div class="content">
+                        <h2>Introduction</h2>
+                        <p>For a long time, I used to crack my video games from unreliable websites, always fearing I might install a virus on my first computer. That’s why I started developing <strong>TheSteamTool</strong> with the ambition of creating a simple tool that would allow me to enjoy my games without resorting to piracy.</p>
+                        <p>This project also allowed me to learn a lot, especially around the <span class="inline-code">C#</span> language. Why C#? Because I’ve been working with it for almost 3 years on Unity, and I wanted to go further to strengthen my skills. In addition, <span class="inline-code">C#</span>, developed by Microsoft, integrates perfectly with Windows.</p>
+                    </div>
+                </section>
+
+                <section class="section" id="before-launch">
+                    <h2>Before Launching the Program</h2>
+                    <ol>
+                        <li>Make sure you have installed <a class="link-style" href="https://store.steampowered.com/?l=english" target="_blank" rel="noopener noreferrer">Steam</a>.</li>
+                        <li>Do not modify the dependencies located in the <span class="inline-code">/core</span> folder.</li>
+                        <li>A <strong>GitHub token</strong> is required:
+                            <ul>
+                                <li>Create an account or log in on <a class="link-style" href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                                <li>Generate a token via <a class="link-style" href="https://github.com/settings/personal-access-tokens" target="_blank" rel="noopener noreferrer">this page</a></li>
+                                <li>Copy/paste the key into <span class="inline-code">core/github_tokens.txt</span></li>
+                            </ul>
+                            <div class="warning-bubble">
+                                <h4>Warning</h4>
+                                <p>GitHub tokens expire after a certain time and are limited in requests. Don’t abuse them and regenerate a new one if necessary.</p>
+                            </div>
+                        </li>
+                        <li>Launch the program via <span class="inline-code">TheSteamTool.bat</span> or <span class="inline-code">core/TheSteamTool.exe</span>.</li>
+                    </ol>
+                </section>
+
+                <section class="section" id="after-launch">
+                    <h2>After Launch</h2>
+                    <p>A console window will open and ask you to specify the path to your Steam installation.</p>
+                    <div class="info-bubble">
+                        <h4>Important Info</h4>
+                        <p>This step is crucial for the program to work properly.</p>
+                    </div>
+                    <p>Once configured, the setup will start automatically. No further action is required.</p>
+                </section>
+
+                <section class="section" id="using">
+                    <h2>Usage</h2>
+                    <h3>Normal Usage</h3>
+                    <p>The program will ask you for an <strong>appid</strong>, which corresponds to the game you want to unlock.</p>
+                    <ul>
+                        <li>You can find a game’s appid on <a class="link-style" href="https://steamdb.info" target="_blank" rel="noopener noreferrer">SteamDB</a>.</li>
+                        <li>Wait until the execution finishes.</li>
+                    </ul>
+                </section>
+
+                <section class="section" id="patch-snippet">
+                    <h2>Example: Applying a Patch</h2>
+                    <p>Below is a simplified and commented snippet showing how the <span class="inline-code">hid.dll</span> patch is moved into the Steam folder and how the necessary directories are automatically created.</p>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <div class="code-dot red"></div>
+                                <div class="code-dot yellow"></div>
+                                <div class="code-dot green"></div>
+                            </div>
+                            <span class="code-lang">C#</span>
+                        </div>
+                        <button class="copy-button" onclick="copyCode(this)">Copy</button>
+                        <pre><code><span class="keyword">var</span> <span class="variable">dllPath</span> = <span class="string">"hid.dll"</span>;
+
+<span class="comment">// Check if the file exists before moving it</span>
+<span class="keyword">if</span> (<span class="keyword">await</span> <span class="function">FileExistsAsync</span>(<span class="variable">dllPath</span>))
+{
+    <span class="keyword">var</span> <span class="variable">targetPath</span> = <span class="function">Path.Combine</span>(<span class="variable">config</span>.<span class="variable">SteamPath</span>, <span class="variable">dllPath</span>);
+
+    <span class="comment">// Delete the existing version if necessary</span>
+    <span class="keyword">if</span> (<span class="keyword">await</span> <span class="function">FileExistsAsync</span>(<span class="variable">targetPath</span>))
+        <span class="keyword">await</span> <span class="function">DeleteFileAsync</span>(<span class="variable">targetPath</span>);
+
+    <span class="comment">// Move the patch into the Steam folder</span>
+    <span class="keyword">await</span> <span class="function">MoveFileAsync</span>(<span class="variable">dllPath</span>, <span class="variable">targetPath</span>);
+    <span class="function">Console.WriteLine</span>(<span class="string">"[+] Patch applied successfully!"</span>);
+
+    <span class="comment">// Create required directories if absent</span>
+    <span class="keyword">var</span> <span class="variable">depotCache</span> = <span class="function">Path.Combine</span>(<span class="variable">config</span>.<span class="variable">SteamPath</span>, <span class="string">"config"</span>, <span class="string">"depotcache"</span>);
+    <span class="keyword">var</span> <span class="variable">plugin</span> = <span class="function">Path.Combine</span>(<span class="variable">config</span>.<span class="variable">SteamPath</span>, <span class="string">"config"</span>, <span class="string">"stplug-in"</span>);
+
+    <span class="function">Directory.CreateDirectory</span>(<span class="variable">depotCache</span>);
+    <span class="function">Directory.CreateDirectory</span>(<span class="variable">plugin</span>);
+}
+<span class="keyword">else</span>
+{
+    <span class="function">Console.WriteLine</span>(<span class="string">"[!] hid.dll not found."</span>);
+}</code></pre>
+                    </div>
+                </section>
+
+                <section class="section" id="additional-commands">
+                    <h2>Additional Commands</h2>
+                    <ul>
+                        <li><span class="inline-code">uninstall</span> – Completely uninstalls the program and its configuration files.</li>
+                        <li><span class="inline-code">list</span> – Displays the list of games already installed/unlocked.</li>
+                        <li><span class="inline-code">version</span> – Displays the current version of the program.</li>
+                        <li><span class="inline-code">rm-[id]</span> – Removes a specific game via its appid (e.g., <span class="inline-code">rm-570</span> for Dota 2).</li>
+                        <li><span class="inline-code">help</span> – Displays the help message with all available commands.</li>
+                    </ul>
+                </section>
+
+                <section class="section" id="limitations">
+                    <h2>Limitations</h2>
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>Internet Connection</h4>
+                            <p>The program must be able to access Steam and GitHub servers.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>No DRM Bypass</h4>
+                            <p>The tool does not allow you to play without a license, it only facilitates legal downloads.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Limited GitHub Keys</h4>
+                            <p>If your key reaches its limit, you will need to generate a new one.</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Windows Only</h4>
+                            <p>Other operating systems are not guaranteed to work.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section" id="conclusion">
+                    <h2>Conclusion</h2>
+                    <p>TheSteamTool is a personal project that allowed me to learn a lot in C# while addressing a real need: safely downloading and managing my Steam games.</p>
+                    <div class="quote-block">
+                        <p>"Thank you for using TheSteamTool and supporting my development projects!"</p>
+                        <div class="quote-author">— lluciocc</div>
+                    </div>
+                </section>
 
                 <div class="navigation-buttons">
-                    <a class="nav-button" id="prev">&larr; Article précédent</a>
-                    <a class="nav-button next" id='next'>Article suivant &rarr;</a>
+                    <a class="nav-button" id="prev">&larr; Previous Article</a>
+                    <a class="nav-button next" id="next">Next Article &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="copy-feedback" id="copyFeedback">Code copié !</div>
+    <div class="copy-feedback" id="copyFeedback">Code copied!</div>
 
     <script>
         function goBack() {
-            window.location.href = "../blog.html"
+            window.location.href = "../blog.html";
         }
 
         function copyCode(button) {
@@ -60,11 +206,11 @@
         const prev = document.getElementById('prev');
         const next = document.getElementById('next');
 
-        prev.addEventListener('click', function(){
-          window.location.href = "./article1.html"
+        prev.addEventListener('click', function () {
+            window.location.href = "./article1.html";
         });
-        next.addEventListener('click', function(){
-          window.location.href = "./article3.html"
+        next.addEventListener('click', function () {
+            window.location.href = "./article3.html";
         });
     </script>
 </body>
